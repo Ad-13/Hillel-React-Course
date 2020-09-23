@@ -2,14 +2,11 @@ React TD:
 1) 1:05:08 sto
 2) minimize
 
-3) Warning: findDOMNode is deprecated in StrictMode.
-4) how to close edit state on child components
-5) static defaultProps
-6) Component<any, any, any>' is deprecated
-7) it was necessary to hold all main logic in app js?
-8) error={'sss'}
-9) with animation code doesnt work
-
 React Qs:
-1) is it neccessary to have app.js ? 
-2) redner always on last place ?
+1) {
+    editMode &&
+    <ProductEditRow
+      cancelEditMode={this.cancelEditMode}
+      save={this.onAdd}
+    />
+  }

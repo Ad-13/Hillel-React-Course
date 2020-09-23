@@ -11,7 +11,7 @@ import ProductTableRow from './product-table-row/ProductTableRow';
 import ProductEditRow from '../product-edit-form/ProductEditRow';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-// import Zoom from '@material-ui/core/Zoom';
+import Zoom from '@material-ui/core/Zoom';
 
 export default class ProductTable extends Component {
   state = {
@@ -68,28 +68,7 @@ export default class ProductTable extends Component {
         </div>
 
         <div className="container add-new">
-          {
-            !editMode
-            ? (
-              <Fab className="add-btn" color="primary" aria-label="add" onClick={this.setEditMode}>
-                <AddIcon />
-              </Fab>
-            )
-            : (
-              <TableContainer component={Paper}>
-                <Table className="table" size="small" aria-label="a dense table">
-                  <TableBody>
-                    <ProductEditRow
-                      cancelEditMode={this.cancelEditMode}
-                      save={this.onAdd}
-                    />
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            )
-          }
-
-          {/* <Zoom in={!editMode} disableStrictModeCompat={true}>
+          <Zoom in={!editMode} disableStrictModeCompat={true}>
             <Fab className="add-btn" color="primary" aria-label="add" onClick={this.setEditMode}>
               <AddIcon />
             </Fab>
@@ -98,14 +77,17 @@ export default class ProductTable extends Component {
             <TableContainer component={Paper}>
               <Table className="table" size="small" aria-label="a dense table">
                 <TableBody>
-                  <ProductEditRow
-                    cancelEditMode={this.cancelEditMode}
-                    save={this.add}
-                  />
+                  {
+                    editMode &&
+                    <ProductEditRow
+                      cancelEditMode={this.cancelEditMode}
+                      save={this.onAdd}
+                    />
+                  }
                 </TableBody>
               </Table>
             </TableContainer>
-          </Zoom> */}
+          </Zoom>
         </div>
       </>
     )
