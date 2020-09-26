@@ -24,19 +24,19 @@ export default class ProductTableRow extends Component {
     });
   }
 
-  save = product => {
-    this.props.onUpdate(product);
+  saveProduct = product => {
+    this.props.onUpdateProduct(product);
     this.cancelEditMode();
   }
 
   render() {
-    const { product, onRemove } = this.props;
+    const { product, onRemoveProduct } = this.props;
     const { editMode } = this.state;
 
     if (editMode) return <ProductEditRow
                             product={product}
                             cancelEditMode={this.cancelEditMode}
-                            save={this.save}
+                            saveProduct={this.saveProduct}
                           />
 
     return (
@@ -56,7 +56,7 @@ export default class ProductTableRow extends Component {
           <IconButton className="action"
             aria-label="delete"
             color="secondary"
-            onClick={() => onRemove(product.id)}
+            onClick={() => onRemoveProduct(product.id)}
           >
             <DeleteIcon />
           </IconButton>

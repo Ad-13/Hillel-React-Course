@@ -18,9 +18,9 @@ export default class ProductTable extends Component {
     editMode: false
   }
 
-  onAdd = product => {
+  onAddProduct = product => {
     this.cancelEditMode();
-    this.props.onAdd(product);
+    this.props.onAddProduct(product);
   }
 
   setEditMode = () => {
@@ -37,7 +37,7 @@ export default class ProductTable extends Component {
 
   render() {
     const { editMode } = this.state;
-    const { products, onUpdate, onRemove } = this.props;
+    const { products, onUpdateProduct, onRemoveProduct } = this.props;
 
     return (
       <>
@@ -58,8 +58,8 @@ export default class ProductTable extends Component {
                   <ProductTableRow
                     key={x.id}
                     product={x}
-                    onUpdate={onUpdate}
-                    onRemove={onRemove}
+                    onUpdateProduct={onUpdateProduct}
+                    onRemoveProduct={onRemoveProduct}
                   />
                 )}
               </TableBody>
@@ -81,7 +81,7 @@ export default class ProductTable extends Component {
                     editMode &&
                     <ProductEditRow
                       cancelEditMode={this.cancelEditMode}
-                      save={this.onAdd}
+                      saveProduct={this.onAddProduct}
                     />
                   }
                 </TableBody>

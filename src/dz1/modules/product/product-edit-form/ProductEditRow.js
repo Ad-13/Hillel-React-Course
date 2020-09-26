@@ -35,8 +35,8 @@ export default class ProductEditRow extends Component {
     this.setState({ [name]: value });
   }
 
-  save = () => {
-    this.props.save(this.state);
+  saveProduct = () => {
+    this.props.saveProduct(this.state);
     this.resetFields();
   }
 
@@ -54,7 +54,7 @@ export default class ProductEditRow extends Component {
     })
   }
   
-  isDisabled() {console.log('isDisabled');
+  isDisabled() {
     return this.state.titleError
         || this.state.typeError
         || this.state.priceError
@@ -111,7 +111,7 @@ export default class ProductEditRow extends Component {
           />
         </TableCell>
         <TableCell className="table-cell cell-actions" align="right">
-          <Button disabled={this.isDisabled()} variant="contained" color="primary" onClick={this.save}>
+          <Button disabled={this.isDisabled()} variant="contained" color="primary" onClick={this.saveProduct}>
             Save
           </Button>
           <IconButton className="action" aria-label="cancel" onClick={this.cancelEditMode}>

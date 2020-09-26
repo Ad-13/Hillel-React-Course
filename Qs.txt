@@ -4,3 +4,4 @@ React TD:
 
 React Qs:
 1) Can't perform a React state update on an unmounted component.... sto
+2) not full animation

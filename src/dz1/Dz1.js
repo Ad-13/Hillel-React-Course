@@ -9,7 +9,6 @@ import productsApi from './dummy-product-api';
 export default class Dz1 extends Component {
   state = {
     products: [],
-    editMode: false,
     loading: false
   }
 
@@ -23,13 +22,13 @@ export default class Dz1 extends Component {
       })
   }
 
-  update = product => {
+  updateProduct = product => {
     this.setState({
       products: this.state.products.map(x => x.id === product.id ? product : x)
     })
   }
 
-  add = product => {
+  addProduct = product => {
     this.setState({
       products: [
         ...this.state.products,
@@ -41,7 +40,7 @@ export default class Dz1 extends Component {
     })
   }
 
-  remove = id => {
+  removeProduct = id => {
     this.setState({
       products: this.state.products.filter(x => x.id !== id)
     })
@@ -62,9 +61,9 @@ export default class Dz1 extends Component {
               : (
                 <ProductTable
                   products={this.state.products}
-                  onAdd={this.add}
-                  onRemove={this.remove}
-                  onUpdate={this.update}
+                  onAddProduct={this.addProduct}
+                  onRemoveProduct={this.removeProduct}
+                  onUpdateProduct={this.updateProduct}
                 />
               )
           }
