@@ -3,10 +3,4 @@ React TD:
 2) minimize
 
 React Qs:
-1) {
-    editMode &&
-    <ProductEditRow
-      cancelEditMode={this.cancelEditMode}
-      save={this.onAdd}
-    />
-  }
+1) Can't perform a React state update on an unmounted component.... sto
