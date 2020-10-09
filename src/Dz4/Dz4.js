@@ -12,7 +12,7 @@ export default function Dz4() {
   useEffect(() => {
     console.log('useEffect');
     setTheme('dark');
-  }, []);
+  }, [setTheme]);
 
   console.log(useLocalStorage('theme'));
   console.log(storedTheme);
