@@ -1,0 +1,19 @@
+.user-details {
+  display: flex;
+}
+
+.user-img {
+  flex: none;
+  margin-right: 20px;
+  width: 200px;
+}
+
+.user-txt {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.txt-title {
+  font-weight: bold;
+  margin-right: 5px;
+}

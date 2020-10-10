@@ -1,0 +1,12 @@
+.user-link {
+  display: block;
+  transition: all .2s;
+}
+
+.user-link.active {
+  background: #ddd;
+}
+
+.user-link:hover {
+  background: #eee;
+}

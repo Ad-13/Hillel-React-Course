@@ -1,3 +1,19 @@
-.ui.segment {
-  padding: 34px;
+.app {
+  padding-left: 200px;
+}
+
+.sidebar .MuiPaper-root {
+  width: 200px;
+}
+
+.sidebar .MuiTypography-displayBlock {
+  word-break: break-all;
+}
+
+.spinner-wrapper {
+  text-align: center;
+}
+
+.img {
+  max-width: 100%;
 }

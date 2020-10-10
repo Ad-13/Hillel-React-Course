@@ -1,0 +1,11 @@
+.parts {
+  display: flex;
+}
+
+.part {
+  width: 50%;
+}
+
+.part:last-child {
+  padding-left: 50px;
+}

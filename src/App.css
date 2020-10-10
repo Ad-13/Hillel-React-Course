@@ -8,3 +8,11 @@
   flex: 1 0 auto;
   padding: 20px;
 }
+
+.title {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
