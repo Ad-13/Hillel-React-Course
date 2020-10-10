@@ -1,6 +1,7 @@
 import React from 'react';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, NavLink } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from '@material-ui/core/Button';
 import { useUser } from '../../shared/hooks/useUser';
 import './UserDetails.css';
 
@@ -44,6 +45,14 @@ export default function UserDetails() {
             <div className="txt-title">Website:</div>
             <div className="txt">{user.website}</div>
           </div>
+          <NavLink className='link'
+            to={{
+              pathname: `/users/${user.id}/albums`,
+              userName: user.username,
+              userId: user.id
+            }}>
+            <Button className="btn" variant="contained">User Albums</Button>
+          </NavLink>
         </div>
       </div>
     </>

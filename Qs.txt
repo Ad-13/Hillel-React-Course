@@ -6,3 +6,4 @@ React Qs:
 1) Can't perform a React state update on an unmounted component.... sto
 2) not full animation
 3) Line 13:6:  React Hook useEffect has a missing dependency: 'setTheme'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+4) index.js:1 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.

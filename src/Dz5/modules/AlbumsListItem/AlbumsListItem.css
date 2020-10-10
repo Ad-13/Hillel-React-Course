@@ -1,0 +1,10 @@
+.link {
+  flex: none;
+  margin-left: 20px;
+  text-decoration: none;
+  width: 200px;
+}
+
+.link .btn{
+  width: 100%;
+}

@@ -8,6 +8,9 @@ import Users from './modules/Users/Users';
 import Page404 from './modules/Page404/Page404';
 import About from './modules/About/About';
 import Home from './modules/Home/Home';
+import Posts from './modules/Posts/Posts';
+import Albums from './modules/Albums/Albums';
+import AlbumPhotos from './modules/AlbumPhotos/AlbumPhotos';
 
 export default function Dz5() {
 
@@ -24,8 +27,20 @@ export default function Dz5() {
             <Route path='/about' exact>
               <About />
             </Route>
+            <Route path='/users/:userId/albums' exact>
+              <Albums />
+            </Route>
             <Route path='/users'>
               <Users />
+            </Route>
+            <Route path='/posts' exact>
+              <Posts />
+            </Route>
+            <Route path='/albums' exact>
+              <Albums />
+            </Route>
+            <Route path='/albums/:albumId/photos' exact>
+              <AlbumPhotos />
             </Route>
             <Route path='*'>
               <Page404 />
