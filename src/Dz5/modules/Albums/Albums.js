@@ -2,27 +2,25 @@ import React from 'react';
 import AlbumsListItem from '../AlbumsListItem/AlbumsListItem';
 import { useAlbums } from '../../shared/hooks/useAlbums';
 import List from '@material-ui/core/List';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import './Albums.css';
-import { withRouter } from 'react-router-dom';
+import { Redirect, useParams, withRouter } from 'react-router-dom';
+import Spinner from '../common/Spinner/Spinner';
 
 function Albums(props) {
-  const [albums, isFetching] = useAlbums(props.location.userId);
+  const { userId } = useParams();
+  const [albums, isFetching, notFound] = useAlbums(userId);
   const title = props.location.userName ? 'User Albums' : 'Albums';
 
-  if (isFetching) {
-    return (
-      <div className="spinner-wrapper">
-        <CircularProgress className="spinner" />
-      </div>
-    );
+  if (userId && notFound) {
+    return <Redirect to={`/users/${userId}`}/>
   }
 
   return (
-    <>
+    <div className="animated-wrapper">
       <div className="title">{title}</div>
+      <Spinner isActive={isFetching} />
       <List className="albums">{ albums.map(x => <AlbumsListItem album={x} key={x.id} />) }</List>
-    </>
+    </div>
   )
 }
 

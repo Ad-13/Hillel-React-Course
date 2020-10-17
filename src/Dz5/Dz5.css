@@ -10,10 +10,34 @@
   word-break: break-all;
 }
 
-.spinner-wrapper {
-  text-align: center;
-}
-
 .img {
   max-width: 100%;
+}
+
+.transition-group {
+  position: relative;
+}
+
+.fade-enter,
+.fade-exit {
+  transition: opacity 1 ease-in-out;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  position: absolute;
+  top: 97px;
+  width: 100%;
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
 }

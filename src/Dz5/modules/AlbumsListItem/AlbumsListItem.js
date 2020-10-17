@@ -9,7 +9,7 @@ import './AlbumsListItem.css';
 export default function AlbumsListItem({ album }) {
 
   return (
-    <>
+    <div className="animated-wrapper">
       <ListItem>
         <ListItemText primary={album.title} />
         <NavLink className='link' activeClassName='active' to={`/users/${album.userId}`}>
@@ -20,6 +20,6 @@ export default function AlbumsListItem({ album }) {
         </NavLink>
       </ListItem>
       <Divider component="li" />
-    </>
+    </div>
   )
 }

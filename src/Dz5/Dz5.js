@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import './Dz5.css';
 import Header from './modules/common/header/Header';
 import Sidebar from './modules/common/sidebar/Sidebar';
@@ -12,6 +13,28 @@ import Posts from './modules/Posts/Posts';
 import Albums from './modules/Albums/Albums';
 import AlbumPhotos from './modules/AlbumPhotos/AlbumPhotos';
 
+const AnimatedSwitch = withRouter(({ location }) => (
+    <TransitionGroup className="transition-group">
+      <CSSTransition 
+        key={location.pathname.includes('/users') ? undefined : location.key} 
+        classNames="fade" 
+        timeout={500}
+      >
+        <Switch location={location}>
+            <Route path='/' exact component={Home} />
+            <Route path='/about' exact component={About} />
+            <Route path='/posts' exact component={Posts} />
+            <Route path='/users' exact component={Users} />
+            <Route path='/users/:userId' exact component={Users} />
+            <Route path='/users/:userId/albums' exact component={Albums} />
+            <Route path='/albums' exact component={Albums} />
+            <Route path='/albums/:albumId/photos' exact component={AlbumPhotos} />
+            <Route path='*' component={Page404} />
+        </Switch>
+      </CSSTransition>
+    </TransitionGroup>
+  ));
+
 export default function Dz5() {
 
   return (
@@ -20,32 +43,7 @@ export default function Dz5() {
         <Header />
         <Sidebar />
         <div className='app-content'>
-          <Switch>
-            <Route path='/' exact>
-              <Home />
-            </Route>
-            <Route path='/about' exact>
-              <About />
-            </Route>
-            <Route path='/users/:userId/albums' exact>
-              <Albums />
-            </Route>
-            <Route path='/users'>
-              <Users />
-            </Route>
-            <Route path='/posts' exact>
-              <Posts />
-            </Route>
-            <Route path='/albums' exact>
-              <Albums />
-            </Route>
-            <Route path='/albums/:albumId/photos' exact>
-              <AlbumPhotos />
-            </Route>
-            <Route path='*'>
-              <Page404 />
-            </Route>
-          </Switch>
+          <AnimatedSwitch />
         </div>
         <Footer />
       </div>

@@ -1,39 +1,33 @@
 import React from 'react';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import List from '@material-ui/core/List';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { useUsers } from '../../shared/hooks/useUsers';
 import UsersListItem from '../UsersListItem/UsersListItem';
 import './Users.css';
 import UserDetails from '../UserDetails/UserDetails';
+import Spinner from '../common/Spinner/Spinner';
+import { useParams } from 'react-router-dom';
 
 export default function Users() {
   const [users, isFetching] = useUsers();
-  const { path } = useRouteMatch();
- 
-  if (isFetching) {
-    return (
-      <div className="spinner-wrapper">
-        <CircularProgress className="spinner" />
-      </div>
-    );
-  }
+  const { userId } = useParams();
 
   return (
-    <>
+    <div className="animated-wrapper">
       <div className="title">Users</div>
-      <div className="parts">
-        <div className="part">
-          <List className="users">{ users.map(x => <UsersListItem user={x} key={x.id} />) }</List>
+
+      <Spinner isActive={isFetching} />
+ 
+      {!isFetching && users.length &&
+        <div className="parts">
+          <div className="part">
+            <List className="users">{ users.map(x => <UsersListItem user={x} key={x.id} />) }</List>
+          </div>
+          <div className="part">
+            {userId && <UserDetails userId={userId}/>}
+          </div>
         </div>
-        <div className="part">
-          <Switch>
-            <Route path={`${path}/:userId`} exact>
-              <UserDetails />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </>
-  )
+      }
+      
+    </div>
+  );
 }

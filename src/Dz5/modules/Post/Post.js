@@ -9,7 +9,7 @@ import './Post.css';
 export default function Post({ post }) {
 
   return (
-    <>
+    <div className="animated-wrapper">
       <ListItem>
         <ListItemText primary={post.title} secondary={post.body} />
         <NavLink className='link' activeClassName='active' to={`/users/${post.userId}`}>
@@ -17,6 +17,6 @@ export default function Post({ post }) {
         </NavLink>
       </ListItem>
       <Divider component="li" />
-    </>
+    </div>
   )
 }

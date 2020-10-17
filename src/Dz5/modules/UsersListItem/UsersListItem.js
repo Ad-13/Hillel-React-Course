@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
@@ -8,11 +8,9 @@ import Divider from '@material-ui/core/Divider';
 import './UsersListItem.css';
 
 export default function UsersListItem({ user }) {
-  const { path } = useRouteMatch();
-
   return (
-    <>
-      <NavLink className='user-link' exact activeClassName='active'  to={`${path}/${user.id}`}>
+    <div className="animated-wrapper">
+      <NavLink className='user-link' exact activeClassName='active'  to={`/users/${user.id}`}>
         <ListItem className="user">
           <ListItemAvatar>
             <Avatar>
@@ -23,6 +21,6 @@ export default function UsersListItem({ user }) {
         </ListItem>
         <Divider variant="inset" component="li" />
       </NavLink>
-    </>
+    </div>
   )
 }
