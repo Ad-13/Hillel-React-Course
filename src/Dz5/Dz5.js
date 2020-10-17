@@ -14,26 +14,26 @@ import Albums from './modules/Albums/Albums';
 import AlbumPhotos from './modules/AlbumPhotos/AlbumPhotos';
 
 const AnimatedSwitch = withRouter(({ location }) => (
-    <TransitionGroup className="transition-group">
-      <CSSTransition 
-        key={location.pathname.includes('/users') ? undefined : location.key} 
-        classNames="fade" 
-        timeout={500}
-      >
-        <Switch location={location}>
-            <Route path='/' exact component={Home} />
-            <Route path='/about' exact component={About} />
-            <Route path='/posts' exact component={Posts} />
-            <Route path='/users' exact component={Users} />
-            <Route path='/users/:userId' exact component={Users} />
-            <Route path='/users/:userId/albums' exact component={Albums} />
-            <Route path='/albums' exact component={Albums} />
-            <Route path='/albums/:albumId/photos' exact component={AlbumPhotos} />
-            <Route path='*' component={Page404} />
-        </Switch>
-      </CSSTransition>
-    </TransitionGroup>
-  ));
+  <TransitionGroup className="transition-group">
+    <CSSTransition 
+      key={location.pathname.includes('/users') ? undefined : location.key} 
+      classNames="fade" 
+      timeout={500}
+    >
+      <Switch location={location}>
+          <Route path='/' exact component={Home} />
+          <Route path='/about' exact component={About} />
+          <Route path='/posts' exact component={Posts} />
+          <Route path='/users' exact component={Users} />
+          <Route path='/users/:userId' exact component={Users} />
+          <Route path='/users/:userId/albums' exact component={Albums} />
+          <Route path='/albums' exact component={Albums} />
+          <Route path='/albums/:albumId/photos' exact component={AlbumPhotos} />
+          <Route path='*' component={Page404} />
+      </Switch>
+    </CSSTransition>
+  </TransitionGroup>
+));
 
 export default function Dz5() {
 
