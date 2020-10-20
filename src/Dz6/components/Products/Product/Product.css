@@ -1,0 +1,19 @@
+.MuiCardMedia-root {
+  height: 130px;
+}
+
+.product {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  width: 340px;
+}
+
+.buy-btn.MuiButton-root {
+  background: #4caf50;
+  color: #fff;
+}
+
+.buy-btn.MuiButton-root:hover {
+  background: #4caf50;
+  color: #fff;
+}
