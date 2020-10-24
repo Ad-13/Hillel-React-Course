@@ -5,7 +5,8 @@ import './App.css';
 // import Dz3 from './Dz3/Dz3';
 // import Dz4 from './Dz4/Dz4';
 // import Dz5 from './Dz5/Dz5';
-import Dz6 from './Dz6/Dz6';
+// import Dz6 from './Dz6/Dz6';
+import Dz7 from './Dz7/Dz7';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
     // <Dz3 />
     // <Dz4 />
     // <Dz5 />
-    <Dz6 />
+    // <Dz6 />
+    <Dz7 />
   );
 }
 

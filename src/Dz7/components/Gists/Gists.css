@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+
+.gists-list {
+  flex: none;
+  width: 300px;
+}
+
+.author-info {
+  padding-left: 50px;
+}

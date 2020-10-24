@@ -1,0 +1,12 @@
+.user {
+  margin-bottom: 10px;
+}
+
+.files-ttl {
+  font-weight: bold;
+  padding-left: 75px;
+}
+
+.MuiList-root.files-list {
+  padding-left: 75px;
+}

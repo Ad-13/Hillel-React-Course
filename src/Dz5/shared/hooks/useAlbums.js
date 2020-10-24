@@ -24,7 +24,7 @@ export function useAlbums(userId) {
 
     return () => unmounted = true;
 
-  }, [userId]);
+  }, [userId, request]);
 
   return [albums, isFetching, notFound];
 }

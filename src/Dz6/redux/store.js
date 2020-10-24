@@ -12,9 +12,7 @@ const enhancer = composeEnhancers(
   applyMiddleware(cartLocalStorage),
 );
 
-export default () => {
-  return createStore(
-    rootReducer,
-    enhancer
-  );
-};
+export default createStore({
+  rootReducer,
+  enhancer
+});
