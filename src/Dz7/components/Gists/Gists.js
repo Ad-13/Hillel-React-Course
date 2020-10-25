@@ -5,6 +5,7 @@ import Spinner from '../common/Spinner/Spinner';
 import './Gists.css';
 import { fetchGists } from '../../redux/actions/gists';
 import { List } from '@material-ui/core';
+import FileContent from './FileContent/FileContent';
 
 export default function Gists() {
   const gists = useSelector(state => state.gists);
@@ -21,7 +22,7 @@ export default function Gists() {
         <List dense className="gists-list">
           {gists.data.map(x => <Gist gist={x} key={x.id} />)}
         </List>
-        <div className="author-info"></div>
+        <FileContent />
       </div>
     </div>
   )

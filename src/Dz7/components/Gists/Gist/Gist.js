@@ -1,10 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { getFileContent } from '../../../redux/actions/files';
 import { List, ListItem, Divider, ListItemAvatar, ListItemText, Avatar } from '@material-ui/core';
 import './Gist.css';
 
 export default function Gist({ gist }) {
-  const files = Object.keys(gist.files);
-  console.log(files);
+  const dispatch = useDispatch();
+  const gistFiles = Object.keys(gist.files);
+
+  function onFileClick(file) {
+    dispatch(getFileContent({
+      gistId: gist.id,
+      fileLanguage: gist.files[file].language,
+      fileUrl: gist.files[file].raw_url
+    }))
+  }
 
   return (
     <>
@@ -19,7 +29,11 @@ export default function Gist({ gist }) {
       </ListItem>
       <div className="files-ttl">Files:</div>
       <List className="files-list">
-        {files.map(x => <ListItem className="file" button><ListItemText secondary={x} /></ListItem>)}
+        {gistFiles.map(file =>
+          <ListItem className="file" key={file} button onClick={() => onFileClick(file)}>
+            <ListItemText secondary={file} />
+          </ListItem>
+        )}
       </List>
       <Divider variant="inset" component="li" />
     </>

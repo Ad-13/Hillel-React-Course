@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
+import { filesReducer } from './files';
 import { gistsReducer } from './gists';
 
 export default combineReducers({
-  gists: gistsReducer
+  gists: gistsReducer,
+  files: filesReducer
 });

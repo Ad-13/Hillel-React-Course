@@ -10,3 +10,8 @@
 .MuiList-root.files-list {
   padding-left: 75px;
 }
+
+.file .MuiTypography-colorTextSecondary {
+  color: #0a5fb7;
+  overflow-wrap: break-word;
+}
