@@ -15,12 +15,12 @@ export const fetchFileContent = createAsyncThunk(
   }
 );
 
-export function getFileContent({gistId, fileUrl, fileLanguage}) {
+export function getFileContent({gistId, fileName, fileLanguage, fileUrl}) {
   return (dispatch, getState) => {
     const { files } = getState();
-    return files.data.some(x => x.gistId === gistId)
-      ? dispatch(openFile(gistId))
-      : dispatch(fetchFileContent({gistId, fileUrl, fileLanguage}));
+    return files.data.some(x => x.gistId === gistId && x.fileName === fileName)
+      ? dispatch(openFile({gistId, fileName}))
+      : dispatch(fetchFileContent({gistId, fileName, fileLanguage, fileUrl}));
   };
 };
 

@@ -9,8 +9,10 @@ export default function Gist({ gist }) {
   const gistFiles = Object.keys(gist.files);
 
   function onFileClick(file) {
+    window.scrollTo({top: 0, behavior: 'smooth'});
     dispatch(getFileContent({
       gistId: gist.id,
+      fileName: gist.files[file].filename,
       fileLanguage: gist.files[file].language,
       fileUrl: gist.files[file].raw_url
     }))

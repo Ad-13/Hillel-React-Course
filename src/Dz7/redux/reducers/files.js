@@ -19,6 +19,7 @@ export const filesReducer = createReducer(
       state.data.push({
         gistId: action.meta.arg.gistId,
         language: action.meta.arg.fileLanguage,
+        fileName: action.meta.arg.fileName,
         content: action.payload,
         selected: true
       });
@@ -30,7 +31,7 @@ export const filesReducer = createReducer(
     },
     [openFile]: (state, action) => {
       state.data = state.data.map(x => {
-        return x.gistId === action.payload
+        return x.gistId === action.payload.gistId && x.fileName === action.payload.fileName
           ? ({ ...x, selected: true })
           : ({ ...x, selected: false })
       });

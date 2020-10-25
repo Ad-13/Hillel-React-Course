@@ -12,17 +12,21 @@ export default function FileContent() {
   useEffect(() => {
   }, [files]);
 
-  if (!selectedFile) return '';
-
+  if (!selectedFile && !fileLoading) return '';
+  
   return (
     <div className="user-file">
-      <div className="title">File Content</div>
-      <Spinner isActive={fileLoading}/>
-      <div className="file-content">
-        <SyntaxHighlighter language={selectedFile.language && selectedFile.language.toLowerCase()} style={dark}>
-          {selectedFile.content}
-        </SyntaxHighlighter>
-      </div>
+      {fileLoading && <Spinner isActive={fileLoading}/>}
+      {!fileLoading &&
+      <>
+        <div className="title">File Content</div>
+        <div className="file-content">
+          <SyntaxHighlighter language={selectedFile.language && selectedFile.language.toLowerCase()} style={dark}>
+            {selectedFile.content}
+          </SyntaxHighlighter>
+        </div>
+      </>
+      }
     </div>
   )
 }
