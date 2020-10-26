@@ -21,7 +21,7 @@ export default function Gists() {
       <div className="title">Gists</div>
       {
         gistsLoading ? (
-          <Spinner isActive={gistsLoading}/>
+          <Spinner isActive={true}/>
         ) : (
           <div className="container">
             <List dense className="gists-list">
