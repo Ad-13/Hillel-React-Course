@@ -10,12 +10,13 @@ export default function Gist({ gist }) {
 
   function onFileClick(file) {
     window.scrollTo({top: 0, behavior: 'smooth'});
+
     dispatch(getFileContent({
       gistId: gist.id,
       fileName: gist.files[file].filename,
       fileLanguage: gist.files[file].language,
       fileUrl: gist.files[file].raw_url
-    }))
+    }));
   }
 
   return (
@@ -29,14 +30,26 @@ export default function Gist({ gist }) {
         </ListItemAvatar>
         <ListItemText primary={gist.owner.login} />
       </ListItem>
-      <div className="files-ttl">Files:</div>
-      <List className="files-list">
-        {gistFiles.map(file =>
-          <ListItem className="file" key={file} button onClick={() => onFileClick(file)}>
-            <ListItemText secondary={file} />
-          </ListItem>
-        )}
-      </List>
+      {
+        gist.description && (
+          <div className="detail-block description-block">
+            <div className="detail-ttl">Description:</div>
+            <div className="details">{gist.description}</div>
+          </div>
+        )
+      }
+      
+      <div className="detail-block">
+        <div className="detail-ttl">Files:</div>
+        <List className="details">
+          {gistFiles.map(file =>
+            <ListItem className="file" key={file} button onClick={() => onFileClick(file)}>
+              <ListItemText secondary={file} />
+            </ListItem>
+          )}
+        </List>
+      </div>
+
       <Divider variant="inset" component="li" />
     </>
   )

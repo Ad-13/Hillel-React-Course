@@ -2,12 +2,21 @@
   margin-bottom: 10px;
 }
 
-.files-ttl {
+.detail-ttl {
   font-weight: bold;
   padding-left: 75px;
 }
 
-.MuiList-root.files-list {
+.detail-block.description-block {
+  margin-bottom: 25px;
+}
+
+.detail-block.description-block .detail-ttl {
+  margin-bottom: 10px;
+}
+
+.details,
+.MuiList-root.details {
   padding-left: 75px;
 }
 

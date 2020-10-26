@@ -6,9 +6,11 @@ import './Gists.css';
 import { fetchGists } from '../../redux/actions/gists';
 import { List } from '@material-ui/core';
 import FileContent from './FileContent/FileContent';
+import { getGistLoading, getGists } from '../../redux/selectors/gists';
 
 export default function Gists() {
-  const gists = useSelector(state => state.gists);
+  const gists = useSelector(getGists);
+  const gistsLoading = useSelector(getGistLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGists());
@@ -17,13 +19,18 @@ export default function Gists() {
   return (
     <div className="animated-wrapper">
       <div className="title">Gists</div>
-      <Spinner isActive={gists.loading}/>
-      <div className="container">
-        <List dense className="gists-list">
-          {gists.data.map(x => <Gist gist={x} key={x.id} />)}
-        </List>
-        <FileContent />
-      </div>
+      {
+        gistsLoading ? (
+          <Spinner isActive={gistsLoading}/>
+        ) : (
+          <div className="container">
+            <List dense className="gists-list">
+              {gists.map(x => <Gist gist={x} key={x.id} />)}
+            </List>
+            <FileContent />
+          </div>
+        )
+      }
     </div>
   )
 }
