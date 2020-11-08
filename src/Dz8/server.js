@@ -14,8 +14,6 @@ app.use(bodyParser.json())
 
 app.use('/api', apiRouter);
 
-app.use(express.static('./public'));
-
 app.use(
   (req, res) => {
     res.status(404).send(`Page 404! )`);

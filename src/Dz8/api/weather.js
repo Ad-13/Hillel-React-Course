@@ -1,19 +1,12 @@
 const { Router } = require('express');
 const http = require('http');
-const request = require('request');
-const fs = require('fs');
-const path = require('path');
+const axios = require('axios');
 
 const weatherRouter = Router();
 const apiKey = '8cc9d4859c7574129eb50ade51a86350';
 const baseUrl = 'http://api.openweathermap.org/data/2.5/weather';
 const baseIconUrl = 'http://openweathermap.org/img/w';
 
-function download (url, filename, callback){
-  request.head(url, function(_err, res, _body){
-    request(url).pipe(fs.createWriteStream(filename)).on('close', callback);
-  });
-};
 
 function cityPromise(city) {
   return new Promise((resolve, reject) => {
@@ -40,13 +33,18 @@ weatherRouter.get('/', (req, res) => {
     .then((cityData) => {
       const parsedCityData = JSON.parse(cityData);
 
-      if (logo == 1) {
+      if (+logo === 1) {
         let url = `${baseIconUrl}/${parsedCityData.weather[0].icon}.png`;
-    
-        download(url, 'public/images/img.png', function(){
-          const imgPath = path.join(__dirname, '../public/images', 'img.png');
-          res.sendFile(imgPath);
-        });
+
+        axios
+          .get(url)
+          .then(response => {
+            res.send(`<img src=${response.config.url}>`)
+          })
+          .catch(err => {
+            res.send({'Error': err.message});
+          });
+
         return;
       } else {
         res.send(parsedCityData);
