@@ -1,0 +1,11 @@
+.table-row {
+  transition: all .2s ease-in-out;
+}
+
+.table-row:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.table-cell.cell-actions {
+  width: 130px;
+}

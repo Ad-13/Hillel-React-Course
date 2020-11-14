@@ -14,7 +14,7 @@ export default function Gists() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGists());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="animated-wrapper">

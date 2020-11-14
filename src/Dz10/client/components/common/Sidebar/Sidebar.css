@@ -1,0 +1,23 @@
+.sidebar-link {
+  text-decoration: none;
+}
+
+.sidebar-link.active {
+  background: #eee;
+  display: block;
+}
+
+.total-count {
+  background: #f00;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 20px;
+  text-align: center;
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+}

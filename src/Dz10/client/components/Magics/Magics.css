@@ -1,0 +1,20 @@
+.spinner-wrapper {
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  max-width: 800px;
+}
+
+.add-new {
+  margin-top: 20px;
+  position: relative;
+}
+
+.MuiButtonBase-root.add-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
