@@ -54,7 +54,7 @@ export const magicsReducer = createReducer(
       state.error = null
     },
     [deleteMagics.fulfilled]: (state, action) => {
-      const index = state.data.findIndex(x => x._id === action.payload._id);
+      const index = state.data.findIndex(x => x._id === action.payload);
       state.data.splice(index, 1);
       state.innerLoading = false;
     },

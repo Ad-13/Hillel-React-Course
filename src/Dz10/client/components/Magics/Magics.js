@@ -23,7 +23,7 @@ export default function Magics() {
 
   return (
     <div className="animated-wrapper">
-      <div className="title">Magics</div>
+      <div className="title">~ Magics ~</div>
 
       <div className="container">
         <TableContainer component={Paper}>

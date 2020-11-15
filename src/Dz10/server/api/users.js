@@ -7,13 +7,7 @@ const userRouter = Router();
 
 // CRUD
 
-const allowOnlyIfEmail = email => (req, res, next) => {
-  const loweredEmail = email.toLowerCase();
-  if (req.currentUser.email === loweredEmail) return next();
-  res.status(403).send({ error: 'You are not allowed to do this' })
-};
-
-userRouter.get('/', requireAuth, allowOnlyIfEmail('oandreiev@lohika.com'),  async (req, res) => {
+userRouter.get('/', requireAuth,  async (req, res) => {
     const users = await UserModel.find({});
     res.send(users);
 });
